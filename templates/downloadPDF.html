@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download PDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="CSS/style.css"/>-->
+  <link rel="stylesheet" href="static/register.css"/>
+</head>
+<style>
+table, th, td {
+  border: 0.5px solid grey;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  font: sans-serif;
+  border-style: inset;
+  
+}
+.button {
+  background-color: #202020;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  text-align: center;
+  align-items: right;
+  width:100%;
+  margin-left: 40px;
+  height: 80%;
+  margin-top:25px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.button1 {
+  background-color: #202020; 
+  color: #fff; 
+  border: 2px solid #4B6785;
+  padding: 20px;
+  margin-top: 550px;
+}
+.button1:hover {
+  background-color: #fff;
+  color: #202020;
+}
+</style>
+<body>
+	<div class="container">
+		<div class="container" id="container">
+			<div class="user-details">
+				<p align="center">
+				<img src="static/logo.png" alt="logo" height="110px" width="60%">
+				</p>
+				<div>
+					<h3 align="center">E - Bus Pass</h3>
+				</div>
+				<form action="#" method="get">
+					<table class="table"style="width:100%; margin-top:10px">
+						 <tbody>
+							 {% for row in value %}
+							  <tr>
+								  <td>Full Name </td>
+								  <td>{{row[0]}}</td>
+							  </tr>
+		
+							   <tr>
+								  <td>Age</td>
+								  <td>{{row[1]}}</td>
+							  </tr>
+							  
+							  <tr>
+								  <td>Gender</td>
+								  <td>{{row[2]}}</td>
+							  </tr>
+							  
+							  <tr>
+								  <td>Aadhar No</td>
+								  <td>{{row[3]}}</td>
+							  </tr>
+							  
+							  <tr>
+								  <td>Category</td>
+								  <td>{{row[4]}}</td>
+							  </tr>
+							  
+							  <tr>
+								  <td>Type</td>
+								  <td>{{row[5]}}</td>
+							  </tr>
+							  
+							  <tr>
+								  <td>Region</td>
+								  <td>{{row[6]}}</td>
+							  </tr>
+							  
+							  <tr>
+								  <td>Amount</td>
+								  <td>{{ amt }}</td>
+							  </tr>
+						 </tbody>
+						{% endfor %}
+					</table>
+					</form>
+				</div>
+			</div>
+		</div>
+			<p align="right">
+				<button class="button button1" onclick="generatepdf()">Download PDF</button>
+			</p>
+			</form>
+	</div>
+</body>
+	<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script>
+		function generatepdf()
+			{
+				const element = document.getElementById("container")
+				html2pdf()
+				.from(element)
+				.save();
+			}
+	</script>
+</html>

@@ -1,0 +1,184 @@
+<DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title> UPDATE PROFILE</title>
+        <link rel="stylesheet" href="static/register.css">
+	<meta name="viewport" content="width= device-width, initial-scale=1.0">
+	{% include 'navigation2.html' %}
+    </head>
+       
+    <body>
+        <div class="container" style="margin-top:120px;">
+			<div class="title"> UPDATE PROFILE </div>
+			<form action=# method="POST" name="myForm">
+				<div class="user-details">	
+					{% for row in value %}
+					<div class="input-box">
+						<span class="details"> Full Name </span>
+						<input type="text" id="fname" name="fname" value="{{row[0]}}" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Username </span>
+						<input type="text" id="uname" name="uname" value="{{row[1]}}"  required disabled>
+					</div>
+					
+					<div class="input-box">
+						<span class="details" id="Message"> Email </span>
+						<input type="email" id="email" name="email" value="{{row[2]}}" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Mobile</span>
+						<input type="tel" id="mobile" name="mobile" value="{{row[3]}}" maxlength="10" minlength="10" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Password </span>
+						<input type="password" id="password" name="password" minlength="6" value="{{row[4]}}" required>
+					</div>
+
+					<div class="input-box">
+						<span class="details"> Confirm Password </span>
+						<input type="password" id="password" name="password" minlength="6" value="{{row[4]}}" required>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="button">				
+					<input value="UPDATE DETAILS" type="submit" onsubmit="go()" style="width: 100%;">
+				</div>  	
+			</form>
+        </div>  
+    </body>
+	<script>
+		function go()
+		{
+			 window.location.replace("{{url_for('myprofile')}}")
+		}
+	</script>
+	<script>
+		function register()
+		{
+		  with(document.forms.myForm)
+		  {
+			if(name.value.length <= 0)
+			  alert("Name Field Cannot Be Left Empty!")
+			else if(uname.value.length <= 0)
+			  alert("User Name Field Cannot Be Left Empty!")
+			else if(mobile.value.length <= 0)
+			  alert("Mobile No. Field Cannot Be Left Empty!")
+			else if(email.value.length <= 0)
+			  alert("Email Field Cannot Be Left Empty!")
+			else if(password.value.length <= 0)
+			  alert("Password Field Cannot Be Left Empty!")
+			else if(cpassword.value.length <= 0)
+			  alert("Confirm Password Field Cannot Be Left Empty!")
+			else
+			{
+			  var regUser = document.getElementById("uname").value
+			  var regPassword = document.getElementById("password").value
+			  var newEntry = {
+				  username: regUser,
+				  password: regPassword
+			  }
+			  //Users.push(newEntry)
+			  alert("Registration Successful!")
+			  alert("Successfully Logged In!")
+			  var myWindow1 = window.open("success.html","_blank",)
+			}
+		  }
+		}
+
+		/*VALIDATING NAME*/
+		function valName()
+		{
+		  with(document.forms.myForm)
+		  {
+			if(name.value.length <= 0)
+			  alert('Name Field Cannot Be Left Empty!')
+		  }
+		}
+
+		/*VALIDATING USERNAME*/
+		function valUname()
+		{
+		  with(document.forms.myForm)
+		  {
+			if(uname.value.length <= 0)
+			  alert('User Name Field Cannot Be Left Empty!')
+		  }
+		}
+
+		/*VALIDATING EMAIL ID*/
+		function valEmail()
+		{
+		  var loc
+		  with(document.forms.myForm)
+		  {
+			loc = email.value.indexOf('@')
+			if(loc == -1)
+			{
+			  alert('Invalid Email Address!')
+			  document.getElementById("email").value=""
+			}
+		  }
+		}
+
+		/*VALIDATING CONTACT NO*/
+		function valContact()
+		{
+		  with(document.forms.myForm)
+		  {
+			if(mobile.value.length != 10)
+			{
+			  alert('Invalid Contact Number!')
+			  document.getElementById("mobile").value=""
+			}
+		  }
+		}
+
+		/*VALIDATING USERNAME*/
+		function valUser()
+		{
+		  for(i=0; i< Users.length; i++)
+		  {
+			with(document.forms.myForm)
+			{
+			  if(username.value == Users[i].username)
+			  {
+				alert("The Username " + username.value + " is not available! Please choose another one!")
+				document.getElementById("uname").value=""
+			  }
+			}
+		  }
+		}
+
+		/*VALIDATING PASSWORD*/
+		function valPword()
+		{
+			with(document.forms.myForm)
+			{
+			  if(password.value.length < 8)
+			  {
+				alert("Password too short! (Include 8 or more characters)")
+				document.getElementById("password").value=""
+			  }
+			}
+		}
+
+		/*VALIDATING Confirm Password*/
+		function ConfirmP()
+		{
+		  with(document.forms.myForm)
+		  {
+			if(password.value != cpassword.value)
+			{
+			  alert("Password Mismatched!")
+			  document.getElementById("cpassword").value=""
+			}
+		  }
+		}
+	</script>
+</html>
+

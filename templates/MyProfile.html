@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title> MY PROFILE</title>
+        <link rel="stylesheet" href="static/login.css">
+        
+		<meta name="viewport" content="width= device-width, initial-scale=1.0">
+		{% include 'navigation2.html' %}
+    </head>
+       
+    <body>
+		
+        <div class="container" style="margin-top:120px;">
+			<div class="title"> MY PROFILE </div>
+				<div class="user-details">	
+			<form action="#" method="get">
+			<table class="table"style="width:100%; margin-top:10px">
+				 <tbody>
+				 {% for row in value %}
+					  <tr>
+						  <td>Full Name </td>
+						  <td>{{row[0]}}</td>
+					  </tr>
+
+					   <tr>
+						  <td>Username</td>
+						  <td>{{row[1]}}</td>
+					  </tr>
+
+					  <tr>
+						  <td>Email</td>
+						  <td>{{row[2]}}</td>
+					  </tr>
+
+					  <tr>
+						  <td>Contact Number</td>
+						  <td>{{row[3]}}</td>
+					  </tr>
+
+					  <tr>
+						<td>Password</td>
+						<td>{{row[4]}}</td>
+					</tr>
+				 {% endfor %}
+				 </tbody>
+			</table>
+			<p align="right">
+				<div class="button">
+					<input type="button" value="UPDATE PROFILE" onClick="go()">
+				</div>  
+			</form>
+        </div>  
+    </body>
+	<script>
+		function go()
+		{
+			window.location.replace("{{url_for('updateprofile')}}")
+		}
+	</script>
+</html>

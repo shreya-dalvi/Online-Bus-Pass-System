@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title> Register</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='register.css')}}">
+        <script type="text/javascript" lang="javascript" src="#"></script>
+		<meta name="viewport" content="width= device-width, initial-scale=1.0">
+    </head>
+       
+    <body>
+        <div class="container">
+			<div class="title"> REGISTER </div>
+			<form method="post" action="" name="myForm">
+				<div class="user-details">	
+					<div class="input-box">
+						<span class="details"> Full Name </span>
+						<input type="text" id="fname" name="fname" placeholder="Enter Name" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Username </span>
+						<input type="text" id="uname" name="uname" placeholder="Enter Username" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Email </span>
+						<input type="email" id="email" name="email" placeholder="Enter Email ID" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Mobile</span>
+						<input type="tel" id="mobile" name="mobile" maxlength="10" minlength="10" placeholder="Enter Mobile No." required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Password </span>
+						<input type="password" id="password" name="password" minlength="6" placeholder="Enter Password" required>
+					</div>
+					
+					<div class="input-box">
+						<span class="details"> Confirm Password </span>
+						<input type="password" id="cpassword" name="cpassword" minlength="6" placeholder="Confirm Password" required>
+					</div>
+				</div>
+				
+				<div class="button">
+					<input type="reset" value="Reset" >
+					<input type="submit" value="Register" onclick="go()">
+				</div>
+				<div class="input-box" >
+					<span class="details" >
+						
+						<a href="{{url_for('login')}}">
+							<p style="text-align:center">
+							Already Registred? Login
+							</p>
+						</a>
+					</span>
+				</div>
+			</form>
+        </div>  
+    </body>
+	<script>
+		function go()
+		{
+			alert('Registration Successful!')
+			window.location.replace("{{url_for('login')}}")
+		}
+	</script>
+		<script>
+			function go()
+			{
+				 window.location.replace("{{url_for('myprofile')}}")
+			}
+		
+			function register()
+			{
+			  with(document.forms.myForm)
+			  {
+				if(name.value.length <= 0)
+				  alert("Name Field Cannot Be Left Empty!")
+				else if(uname.value.length <= 0)
+				  alert("User Name Field Cannot Be Left Empty!")
+				else if(mobile.value.length <= 0)
+				  alert("Mobile No. Field Cannot Be Left Empty!")
+				else if(email.value.length <= 0)
+				  alert("Email Field Cannot Be Left Empty!")
+				else if(password.value.length <= 0)
+				  alert("Password Field Cannot Be Left Empty!")
+				else if(cpassword.value.length <= 0)
+				  alert("Confirm Password Field Cannot Be Left Empty!")
+				else
+				{
+				  var regUser = document.getElementById("uname").value
+				  var regPassword = document.getElementById("password").value
+				  var newEntry = {
+					  username: regUser,
+					  password: regPassword
+				  }
+				  //Users.push(newEntry)
+				  alert("Registration Successful!")
+				  alert("Successfully Logged In!")
+				  var myWindow1 = window.open("success.html","_blank",)
+				}
+			  }
+			}
+	
+			/*VALIDATING NAME*/
+			function valName()
+			{
+			  with(document.forms.myForm)
+			  {
+				if(name.value.length <= 0)
+				  alert('Name Field Cannot Be Left Empty!')
+			  }
+			}
+	
+			/*VALIDATING USERNAME*/
+			function valUname()
+			{
+			  with(document.forms.myForm)
+			  {
+				if(uname.value.length <= 0)
+				  alert('User Name Field Cannot Be Left Empty!')
+			  }
+			}
+	
+			/*VALIDATING EMAIL ID*/
+			function valEmail()
+			{
+			  var loc
+			  with(document.forms.myForm)
+			  {
+				loc = email.value.indexOf('@')
+				if(loc == -1)
+				{
+				  alert('Invalid Email Address!')
+				  document.getElementById("email").value=""
+				}
+			  }
+			}
+	
+			/*VALIDATING CONTACT NO*/
+			function valContact()
+			{
+			  with(document.forms.myForm)
+			  {
+				if(mobile.value.length != 10)
+				{
+				  alert('Invalid Contact Number!')
+				  document.getElementById("mobile").value=""
+				}
+			  }
+			}
+	
+			/*VALIDATING USERNAME*/
+			function valUser()
+			{
+			  for(i=0; i< Users.length; i++)
+			  {
+				with(document.forms.myForm)
+				{
+				  if(username.value == Users[i].username)
+				  {
+					alert("The Username " + username.value + " is not available! Please choose another one!")
+					document.getElementById("uname").value=""
+				  }
+				}
+			  }
+			}
+	
+			/*VALIDATING PASSWORD*/
+			function valPword()
+			{
+				with(document.forms.myForm)
+				{
+				  if(password.value.length < 8)
+				  {
+					alert("Password too short! (Include 8 or more characters)")
+					document.getElementById("password").value=""
+				  }
+				}
+			}
+	
+			/*VALIDATING Confirm Password*/
+			function ConfirmP()
+			{
+			  with(document.forms.myForm)
+			  {
+				if(password.value != cpassword.value)
+				{
+				  alert("Password Mismatched!")
+				  document.getElementById("cpassword").value=""
+				}
+			  }
+			}
+		</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title> Register</title>
+        <link rel="stylesheet" href="static/login.css">
+		<meta name="viewport" content="width= device-width, initial-scale=1.0">
+    </head>
+       
+    <body>
+        <div class="container">
+			
+			<div class="title"> FORGOT PASSWORD </div>
+			<form name="myForm" method="post" action="">
+				<div class="user-details">	
+					
+					<div class="input-box">
+						<span class="details"> USERNAME </span>
+						<input type="text" id="uname" name="uname" placeholder="Enter Username" required>
+					</div>
+					
+				</div>
+				
+				<div class="user-details">	
+					<div class="input-box">
+						<span class="details"> Email Id </span>
+						<input type="text" id="email" name="email" placeholder="Enter Email Id" required>
+					</div>
+				</div>
+				<div class="button">
+					<input type="submit" value="CONTINUE">
+				</div>
+			</form>
+        </div>  
+    </body>
+	<script>	
+		function valEmail()
+		{
+		  var loc
+		  with(document.forms.myForm)
+		  {
+			loc = email.value.indexOf('@')
+			if(loc == -1)
+			{
+			  alert('Invalid Email Address!')
+			  document.getElementById("email").value=""
+			}
+		  }
+		}
+
+		function ConfirmP()
+		{
+		with(document.forms.myForm)
+		{
+			if(password.value != cpassword.value)
+			{
+			alert("Password Mismatched!")
+			document.getElementById("cpassword").value=""
+			}
+		}
+		}
+	</script>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="static/commonpage.css">
+     <script type="text/javascript" lang="javascript" src=""></script>
+		
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
+</head>
+<body>
+
+    <div class="container">
+        <div class="title"> USER DETAILS </div>
+
+			<form name="myForm" method="post" action="#">
+				<div class="user-details">	
+						<div class="input-field input-box">
+							<span class="details"> NAME</span>
+							<input type="text" id="name" name="name" placeholder="Enter Name" required>
+						</div>
+
+						<div class="input-field input-box">
+							<span class="details"> AGE </span>
+							<input type="number" id="age" name="age" placeholder="Enter Age" required>
+						</div>
+						
+						<div class="input-field input-box wrapper-dropdown-5">
+								<span class="details" >GENDER</span>
+								<select id="gender" required name="gender">
+									<option disabled selected>SELECT GENDER</option>
+									<option>MALE</option>
+									<option>FEMALE</option>
+									<option>TRANSGENDER</option>
+								</select>
+						</div>
+						
+						<div class="input-field input-box">
+							<span class="details"> AADHAR NO</span>
+							<input type="text" id="aadhar" name="aadhar" maxlength="12" minlength="12" placeholder="Enter Aadhar No." required>
+						</div>
+						
+						<div class="input-box input-field wrapper-dropdown-5">
+								<span class="details">CATEGORY</span>
+								<select id="category" required name="category">
+									<option disabled selected>SELECT CATEGORY</option>
+									<option>STUDENT</option>
+									<option>SENIOR CITIZEN</option>
+									<option>GOVERNMENT EMPLOYEE</option>
+									<option>OTHER</option>
+								</select>
+						</div>
+
+						<div class="input-box input-field wrapper-dropdown-5">
+								<span class="details">TYPE</span>
+								<select id="type" required name="type">
+									<option disabled selected>SELECT TYPE</option>
+									<option>ONE DAY</option>
+									<option>ONE MONTH</option>
+								</select>
+						</div>
+						
+						<div class="input-box input-field wrapper-dropdown-5">
+								<span class="details">REGION</span>
+								<select required name="region">
+									<option disabled selected>SELECT REGION</option>
+									<option>PMC+PCMC</option>
+									<option>PMC</option>
+								</select>
+						</div>
+						<div class="input-field input-box">
+							<span class="details">TRAVEL DATE</span>
+							<input type="text" id="tdate" name="tdate" placeholder="Enter today's date" required>
+						</div>
+
+						
+						<div class="button">
+							<input type="submit" value="NEXT" onclick="go()"></a>
+						</div>  
+				</div>	
+			</form>
+	</div>
+</body>
+<script>
+	function go()
+	{
+		window.location.replace("{{url_for('details')}}")
+	}
+</script>
+</html>

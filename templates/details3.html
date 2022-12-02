@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="CSS/style.css"/>-->
+  <link rel="stylesheet" href="static/login.css"/>
+</head>
+<style>
+table, th, td {
+  border: 0.5px solid grey;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  font: sans-serif;
+  border-style: inset;
+  
+}
+.button {
+  background-color: #202020;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  text-align: center;
+  align-items: right;
+  width:40%;
+  margin-top:25px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.button1 {
+  background-color: #4B6785; 
+  color: #FFFFFF; 
+  border: 2px solid #4B6785;
+}
+.button1:hover {
+  background-color: #202020;
+  color: white;
+}
+</style>
+<body>
+	<div class="container">
+		<div class="title"> Pass </div>
+			<div class="user-details">
+				<form action="#" method="get">
+			<table class="table"style="width:100%; margin-top:10px">
+				 <tbody>
+				 {% for row in value %}
+					  <tr>
+						  <td>Full Name </td>
+						  <td>{{row[0]}}</td>
+					  </tr>
+
+					   <tr>
+						  <td>Age</td>
+						  <td>{{row[1]}}</td>
+					  </tr>
+					  
+					  <tr>
+						  <td>Gender</td>
+						  <td>{{row[2]}}</td>
+					  </tr>
+					  
+					  <tr>
+						  <td>Aadhar No</td>
+						  <td>{{row[3]}}</td>
+					  </tr>
+					  
+					  <tr>
+						  <td>Category</td>
+						  <td>{{row[4]}}</td>
+					  </tr>
+					  
+					  <tr>
+						  <td>Type</td>
+						  <td>{{row[5]}}</td>
+					  </tr>
+					  
+					  <tr>
+						  <td>Region</td>
+						  <td>{{row[6]}}</td>
+					  </tr>
+				 		<tr>
+						  <td>Date</td>
+						  <td>{{row[7]}}</td>
+					  </tr>
+					  
+					  <tr>
+						  <td>Amount</td>
+						  <td>{{amt}}</td>
+					  </tr>
+
+				 {% endfor %}
+				 </tbody>
+			</table>
+			<p align="right">
+				<button class="button button1" id="rzp-button1">Pay</button>
+			</p>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_DFph5mnoblMl15", // Enter the Key ID generated from the Dashboard
+    "amount": "{{amt}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "PMPML",
+    "description": "",
+    "image": "static/logo2.png",
+    "order_id": "{{payment['id']}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        //alert(response.razorpay_payment_id);
+        //alert(response.razorpay_order_id);
+        //alert(response.razorpay_signature)
+        window.location.replace("{{url_for('generatepdf')}}")
+    },
+    "notes": {
+        "address": "PMPML"
+    },
+    "theme": {
+        "color": "#4B6785"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+  window.location.replace("{{url_for('payfail')}}")
+});
+document.getElementById('rzp-button1').onclick = function(e)
+{
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</body>
+</html>
