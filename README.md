@@ -1,4 +1,5 @@
 Introduction:
+
   The online bus pass system is a web-based application that delivers bus passes in PDF format, eliminating the use of paper and thereby contributing to the Digital India campaign. Students and travellers will be able to get bus passes online, eliminating the need for them to stand in line for passes. Passengers must first register and confirm their Aadhar numbers with the system. They may reserve passes for any route online after registering with the system.
 
 Objectives:
@@ -7,6 +8,7 @@ Objectives:
 - To provide a platform that accepts cashless transactions, which eliminates the currency change issue.
 
 Current System:
+
   The bus pass reservation system is currently maintaining the transport organizations' (particularly PMPML) pass reservation process manually, which is a very time consuming process. It deals with the transportation organization's pass booking and passenger record maintenance, so it becomes a very tedious job for the ticket booker to look after these particulars to complete the task at the right time. The bus ticket booking system is an effort to digitise this manual process through the use of technology.
 
 Process Flow:
