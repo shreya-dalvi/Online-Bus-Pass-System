@@ -2,10 +2,14 @@ Introduction:
 
   The online bus pass system is a web-based application that delivers bus passes in PDF format, eliminating the use of paper and thereby contributing to the Digital India campaign. Students and travellers will be able to get bus passes online, eliminating the need for them to stand in line for passes. Passengers must first register and confirm their Aadhar numbers with the system. They may reserve passes for any route online after registering with the system.
 
+
+
 Objectives:
 - To provide bus passes online in PDF or QR format, which reduces the possibility of them getting stolen or misplaced. 
 - To provide bus passes at the convenience of the user, 24x7.
 - To provide a platform that accepts cashless transactions, which eliminates the currency change issue.
+
+
 
 Current System:
 
@@ -13,6 +17,9 @@ Current System:
 
 Process Flow:
 ![Copy of Poster 2 (1)](https://user-images.githubusercontent.com/114758020/207737424-3a4e2dd7-fe69-4d06-9b35-bb1d26e5de7a.png)
+
+
+
 
 Screenshots:
 
