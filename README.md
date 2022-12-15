@@ -31,8 +31,8 @@ Screenshots:
 - Review Page
 ![Screenshot (119)](https://user-images.githubusercontent.com/114758020/207738101-9bcba84a-6473-4968-aa4c-4bceda572eac.png)
 
--Payment Page
+- Payment Page
 ![Screenshot (120)](https://user-images.githubusercontent.com/114758020/207738254-6d2aee65-1f0e-4448-8d09-60438b8e66a6.png)
 
--Download PDF Page
+- Download PDF Page
 ![Screenshot (122)](https://user-images.githubusercontent.com/114758020/207738296-86dc5763-759a-4dcd-b06d-918cf73961bc.png)
